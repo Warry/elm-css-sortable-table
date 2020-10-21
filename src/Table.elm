@@ -66,11 +66,11 @@ is not that crazy.
 -}
 
 import Char
-import Html exposing (Attribute, Html)
-import Html.Attributes as Attr
-import Html.Events as E
-import Html.Keyed as Keyed
-import Html.Lazy exposing (lazy2, lazy3)
+import Html.Styled as Html exposing (Attribute, Html)
+import Html.Styled.Attributes as Attributes
+import Html.Styled.Events as Events
+import Html.Styled.Keyed as Keyed
+import Html.Styled.Lazy exposing (lazy2, lazy3)
 import Json.Decode as Json
 
 
@@ -297,12 +297,12 @@ nbsp =
 
 darkGrey : String -> Html msg
 darkGrey symbol =
-    Html.span [ Attr.style "color" "#555" ] [ Html.text (nbsp ++ symbol) ]
+    Html.span [ Attributes.style "color" "#555" ] [ Html.text (nbsp ++ symbol) ]
 
 
 lightGrey : String -> Html msg
 lightGrey symbol =
-    Html.span [ Attr.style "color" "#ccc" ] [ Html.text (nbsp ++ symbol) ]
+    Html.span [ Attributes.style "color" "#ccc" ] [ Html.text (nbsp ++ symbol) ]
 
 
 simpleRowAttrs : data -> List (Attribute msg)
@@ -534,7 +534,7 @@ toHeaderInfo (State sortName isReversed) toMsg { name, sorter } =
 
 onClick : String -> Bool -> (State -> msg) -> Attribute msg
 onClick name isReversed toMsg =
-    E.on "click" <|
+    Events.on "click" <|
         Json.map toMsg <|
             Json.map2 State (Json.succeed name) (Json.succeed isReversed)
 

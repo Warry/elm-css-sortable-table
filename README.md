@@ -1,4 +1,4 @@
-# Sortable Tables
+# Sortable Tables, for elm-css
 
 Create sortable tables for data of any shape.
 
